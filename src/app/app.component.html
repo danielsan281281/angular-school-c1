@@ -3,8 +3,8 @@
   <h1 [style.font-size.%]="myHelloComponent.namesList.length > 0 ? 200 : 150" [style.color]="myHelloComponent.namesList.length > 0 ? 'red' : 'black'">
     Let's learn Angular
   </h1>
-  <div [class.hidden]="myHelloComponent.inputName.length == 0">Writting '{{ myHelloComponent.inputName }}' in HelloComponent</div>
-  <custom-hello #myHelloComponent [name]="myName" (sayHello)="onSayHello($event)"></custom-hello>
-  <custom-hello *ngFor="let greetingName of ['John', 'Mike']" [name]="greetingName"></custom-hello>
-  <custom-hello name="Mark"></custom-hello>
+  <div [class.hidden]="myHelloComponent.inputName.length == 0">
+    <span [ngClass]="updateNameClasses(myHelloComponent.inputName)">Writting '{{ myHelloComponent.inputName }}' in HelloComponent</span>
+  </div>
+  <custom-hello #myHelloComponent (sayHello)="onSayHello($event)"></custom-hello>
 </div>
